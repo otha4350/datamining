@@ -84,9 +84,9 @@ No, because the people with the most incoming/outgoing relationships are the mos
 
 | species       | ls[cm]    | std[cm]  | 
 |:--------------|-----------|----------|
-|Iris-setosa|      0.437961|  0.326222|
-|Iris-versicolor|  0.433546|  0.325913|
-|Iris-virginica|   0.441271|  0.324773|
+|Iris-setosa     | 0.099396 | 0.030537|
+|Iris-versicolor | 0.552654 | 0.073867|
+|Iris-virginica  | 0.758920 | 0.088930|
 
 - **What are the average length and standard deviation of sepals after standardization?**
 
@@ -109,8 +109,10 @@ No, because the people with the most incoming/outgoing relationships are the mos
 |PC1|0.519962      |0.297933   |0.573007  |0.559051
 
 - **How many components would have been selected after 4.4 (that is, with an attribute expressed on a larger range)?**
+
 2
 - **How many components would have been selected after 4.5 (that is, with a outlier)?**
+
 3
 
 ## Task 5: Sampling
