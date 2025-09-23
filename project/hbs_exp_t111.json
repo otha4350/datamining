@@ -1,0 +1,299 @@
+{
+    "version": "2.0",
+    "class": "dataset",
+    "label": "Mean consumption expenditure per household and per adult equivalent",
+    "source": "ESTAT",
+    "updated": "2025-02-18T23:00:00+0100",
+    "value": {
+        "30": 25882,
+        "11": 22930,
+        "12": 4775,
+        "23": 17658,
+        "13": 8426,
+        "15": 23596,
+        "14": 28867,
+        "6": 20121,
+        "16": 10042,
+        "18": 11922,
+        "19": 16576,
+        "0": 17563,
+        "36": 26015,
+        "20": 21511,
+        "21": 8605,
+        "27": 9446,
+        "17": 27048,
+        "22": 18141,
+        "25": 8953,
+        "26": 43306,
+        "24": 8310,
+        "43": 4972,
+        "28": 13742,
+        "29": 25624,
+        "41": 32414,
+        "31": 5954,
+        "32": 13342,
+        "33": 4867,
+        "45": 4677,
+        "34": 13712,
+        "35": 7827,
+        "46": 4515
+    },
+    "status": {
+        "23": "e",
+        "6": "e",
+        "0": "e",
+        "20": "e",
+        "28": "e"
+    },
+    "id": [
+        "freq",
+        "unit",
+        "geo",
+        "time"
+    ],
+    "size": [
+        1,
+        1,
+        48,
+        1
+    ],
+    "dimension": {
+        "freq": {
+            "label": "Time frequency",
+            "category": {
+                "index": {
+                    "A": 0
+                },
+                "label": {
+                    "A": "Annual"
+                }
+            }
+        },
+        "unit": {
+            "label": "Unit of measure",
+            "category": {
+                "index": {
+                    "EUR_AE": 0
+                },
+                "label": {
+                    "EUR_AE": "Euro per adult equivalent"
+                }
+            }
+        },
+        "geo": {
+            "label": "Geopolitical entity (reporting)",
+            "category": {
+                "index": {
+                    "EU27_2020": 0,
+                    "EU28": 1,
+                    "EU27_2007": 2,
+                    "EU25": 3,
+                    "EU15": 4,
+                    "EA": 5,
+                    "EA20": 6,
+                    "EA18": 7,
+                    "EA17": 8,
+                    "EA13": 9,
+                    "EA12": 10,
+                    "BE": 11,
+                    "BG": 12,
+                    "CZ": 13,
+                    "DK": 14,
+                    "DE": 15,
+                    "EE": 16,
+                    "IE": 17,
+                    "EL": 18,
+                    "ES": 19,
+                    "FR": 20,
+                    "HR": 21,
+                    "IT": 22,
+                    "CY": 23,
+                    "LV": 24,
+                    "LT": 25,
+                    "LU": 26,
+                    "HU": 27,
+                    "MT": 28,
+                    "NL": 29,
+                    "AT": 30,
+                    "PL": 31,
+                    "PT": 32,
+                    "RO": 33,
+                    "SI": 34,
+                    "SK": 35,
+                    "FI": 36,
+                    "SE": 37,
+                    "EEA30_2007": 38,
+                    "EEA28": 39,
+                    "EFTA": 40,
+                    "NO": 41,
+                    "UK": 42,
+                    "ME": 43,
+                    "MK": 44,
+                    "RS": 45,
+                    "TR": 46,
+                    "XK": 47
+                },
+                "label": {
+                    "EU27_2020": "European Union - 27 countries (from 2020)",
+                    "EU28": "European Union - 28 countries (2013-2020)",
+                    "EU27_2007": "European Union - 27 countries (2007-2013)",
+                    "EU25": "European Union - 25 countries (2004-2006)",
+                    "EU15": "European Union - 15 countries (1995-2004)",
+                    "EA": "Euro area (EA11-1999, EA12-2001, EA13-2007, EA15-2008, EA16-2009, EA17-2011, EA18-2014, EA19-2015, EA20-2023)",
+                    "EA20": "Euro area \u2013 20 countries (from 2023)",
+                    "EA18": "Euro area - 18 countries (2014)",
+                    "EA17": "Euro area - 17 countries (2011-2013)",
+                    "EA13": "Euro area - 13 countries (2007)",
+                    "EA12": "Euro area - 12 countries (2001-2006)",
+                    "BE": "Belgium",
+                    "BG": "Bulgaria",
+                    "CZ": "Czechia",
+                    "DK": "Denmark",
+                    "DE": "Germany",
+                    "EE": "Estonia",
+                    "IE": "Ireland",
+                    "EL": "Greece",
+                    "ES": "Spain",
+                    "FR": "France",
+                    "HR": "Croatia",
+                    "IT": "Italy",
+                    "CY": "Cyprus",
+                    "LV": "Latvia",
+                    "LT": "Lithuania",
+                    "LU": "Luxembourg",
+                    "HU": "Hungary",
+                    "MT": "Malta",
+                    "NL": "Netherlands",
+                    "AT": "Austria",
+                    "PL": "Poland",
+                    "PT": "Portugal",
+                    "RO": "Romania",
+                    "SI": "Slovenia",
+                    "SK": "Slovakia",
+                    "FI": "Finland",
+                    "SE": "Sweden",
+                    "EEA30_2007": "European Economic Area (EU27 - 2007-2013 and IS, LI, NO)",
+                    "EEA28": "European Economic Area (EU25 - 2004-2006 and IS, LI, NO)",
+                    "EFTA": "European Free Trade Association",
+                    "NO": "Norway",
+                    "UK": "United Kingdom",
+                    "ME": "Montenegro",
+                    "MK": "North Macedonia",
+                    "RS": "Serbia",
+                    "TR": "T\u00fcrkiye",
+                    "XK": "Kosovo*"
+                }
+            }
+        },
+        "time": {
+            "label": "Time",
+            "category": {
+                "index": {
+                    "2020": 0
+                },
+                "label": {
+                    "2020": "2020"
+                }
+            }
+        }
+    },
+    "extension": {
+        "lang": "EN",
+        "id": "HBS_EXP_T111",
+        "agencyId": "ESTAT",
+        "version": "1.0",
+        "datastructure": {
+            "id": "HBS_EXP_T111",
+            "agencyId": "ESTAT",
+            "version": "38.0"
+        },
+        "annotation": [
+            {
+                "type": "CREATED",
+                "date": "2017-06-28T14:51:44+0200"
+            },
+            {
+                "type": "DISSEMINATION_DOI_XML",
+                "title": "<adms:identifier xmlns:adms=\"http://www.w3.org/ns/adms#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core.html\" xmlns:dct=\"http://purl.org/dc/terms/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"><adms:Identifier rdf:about=\"https://doi.org/10.2908/HBS_EXP_T111\"><skos:notation rdf:datatype=\"http://purl.org/spar/datacite/doi\">10.2908/HBS_EXP_T111</skos:notation><dct:creator rdf:resource=\"http://publications.europa.eu/resource/authority/corporate-body/ESTAT\"/><dct:issued rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2023-01-19</dct:issued></adms:Identifier></adms:identifier>"
+            },
+            {
+                "type": "DISSEMINATION_OBJECT_TYPE",
+                "title": "DATASET"
+            },
+            {
+                "type": "DISSEMINATION_TIMESTAMP_DATA",
+                "date": "2025-02-18T23:00:00+0100"
+            },
+            {
+                "type": "DISSEMINATION_TIMESTAMP_GLOBAL",
+                "date": "2025-02-18T23:00:00+0100"
+            },
+            {
+                "type": "DISSEMINATION_TIMESTAMP_PLANNED",
+                "date": "2025-02-18T23:00:00+0100"
+            },
+            {
+                "type": "ESMS_HTML",
+                "title": "Explanatory texts (metadata)",
+                "href": "https://ec.europa.eu/eurostat/cache/metadata/en/hbs_esms.htm"
+            },
+            {
+                "type": "ESMS_SDMX",
+                "title": "Explanatory texts (metadata)",
+                "href": "https://ec.europa.eu/eurostat/api/dissemination/files?file=metadata/hbs_esms.sdmx.zip"
+            },
+            {
+                "type": "OBS_COUNT",
+                "title": "1156"
+            },
+            {
+                "type": "OBS_PERIOD_OVERALL_LATEST",
+                "title": "2020"
+            },
+            {
+                "type": "OBS_PERIOD_OVERALL_OLDEST",
+                "title": "1988"
+            },
+            {
+                "type": "SOURCE_INSTITUTIONS",
+                "text": "Eurostat"
+            },
+            {
+                "type": "UPDATE_DATA",
+                "date": "2025-02-18T23:00:00+0100"
+            },
+            {
+                "type": "UPDATE_STRUCTURE",
+                "date": "2025-02-18T23:00:00+0100"
+            }
+        ],
+        "status": {
+            "label": {
+                "e": "estimated"
+            }
+        },
+        "positions-with-no-data": {
+            "freq": [],
+            "unit": [],
+            "geo": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7,
+                8,
+                9,
+                10,
+                37,
+                38,
+                39,
+                40,
+                42,
+                44,
+                47
+            ],
+            "time": []
+        }
+    }
+}

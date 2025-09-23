@@ -1,0 +1,416 @@
+{
+    "version": "2.0",
+    "class": "dataset",
+    "label": "Mean and median income by educational attainment level",
+    "source": "ESTAT",
+    "updated": "2025-07-24T23:00:00+0200",
+    "value": {
+        "27": 26702,
+        "8": 22985,
+        "9": 4526,
+        "20": 16389,
+        "10": 12635,
+        "12": 22132,
+        "11": 32362,
+        "5": 18486,
+        "13": 13731,
+        "15": 8969,
+        "16": 15933,
+        "1": 17517,
+        "33": 26662,
+        "17": 19456,
+        "18": 9106,
+        "24": 6396,
+        "14": 26582,
+        "19": 17148,
+        "22": 9443,
+        "23": 33457,
+        "21": 10325,
+        "25": 18425,
+        "26": 27941,
+        "36": 36467,
+        "28": 9185,
+        "29": 11128,
+        "30": 5024,
+        "42": 4010,
+        "34": 22476,
+        "31": 16442,
+        "32": 7009,
+        "43": 3576,
+        "72": 34402,
+        "53": 30392,
+        "54": 8481,
+        "65": 19374,
+        "55": 16033,
+        "57": 28747,
+        "56": 35209,
+        "50": 24112,
+        "58": 15835,
+        "60": 10722,
+        "61": 18796,
+        "46": 21401,
+        "78": 28478,
+        "62": 24735,
+        "63": 12877,
+        "69": 8769,
+        "59": 31954,
+        "64": 21514,
+        "67": 11594,
+        "68": 46313,
+        "66": 12420,
+        "70": 23470,
+        "71": 32462,
+        "81": 41359,
+        "73": 11490,
+        "74": 13265,
+        "75": 8241,
+        "87": 6141,
+        "79": 28715,
+        "76": 19532,
+        "77": 9943,
+        "88": 4658,
+        "117": 39660,
+        "98": 37856,
+        "99": 12569,
+        "110": 25793,
+        "100": 19742,
+        "102": 37497,
+        "101": 41872,
+        "95": 31653,
+        "103": 21534,
+        "105": 14166,
+        "106": 25212,
+        "91": 29490,
+        "123": 36261,
+        "107": 33065,
+        "108": 17017,
+        "114": 11580,
+        "104": 40269,
+        "109": 28007,
+        "112": 18175,
+        "113": 63726,
+        "111": 17874,
+        "115": 29135,
+        "116": 39295,
+        "126": 45208,
+        "118": 15044,
+        "119": 18046,
+        "120": 12463,
+        "132": 8598,
+        "124": 33226,
+        "121": 24410,
+        "122": 11752,
+        "133": 7542
+    },
+    "status": {
+        "18": "b",
+        "22": "p",
+        "63": "b",
+        "67": "p",
+        "108": "b",
+        "112": "p"
+    },
+    "id": [
+        "freq",
+        "indic_il",
+        "unit",
+        "isced11",
+        "sex",
+        "age",
+        "geo",
+        "time"
+    ],
+    "size": [
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        45,
+        1
+    ],
+    "dimension": {
+        "freq": {
+            "label": "Time frequency",
+            "category": {
+                "index": {
+                    "A": 0
+                },
+                "label": {
+                    "A": "Annual"
+                }
+            }
+        },
+        "indic_il": {
+            "label": "Income and living conditions indicator",
+            "category": {
+                "index": {
+                    "MED_E": 0
+                },
+                "label": {
+                    "MED_E": "Median equivalised net income"
+                }
+            }
+        },
+        "unit": {
+            "label": "Unit of measure",
+            "category": {
+                "index": {
+                    "EUR": 0
+                },
+                "label": {
+                    "EUR": "Euro"
+                }
+            }
+        },
+        "isced11": {
+            "label": "International Standard Classification of Education (ISCED 2011)",
+            "category": {
+                "index": {
+                    "ED0-2": 0,
+                    "ED3_4": 1,
+                    "ED5-8": 2
+                },
+                "label": {
+                    "ED0-2": "Less than primary, primary and lower secondary education (levels 0-2)",
+                    "ED3_4": "Upper secondary and post-secondary non-tertiary education (levels 3 and 4)",
+                    "ED5-8": "Tertiary education (levels 5-8)"
+                }
+            }
+        },
+        "sex": {
+            "label": "Sex",
+            "category": {
+                "index": {
+                    "T": 0
+                },
+                "label": {
+                    "T": "Total"
+                }
+            }
+        },
+        "age": {
+            "label": "Age class",
+            "category": {
+                "index": {
+                    "Y18-64": 0
+                },
+                "label": {
+                    "Y18-64": "From 18 to 64 years"
+                }
+            }
+        },
+        "geo": {
+            "label": "Geopolitical entity (reporting)",
+            "category": {
+                "index": {
+                    "EU": 0,
+                    "EU27_2020": 1,
+                    "EU28": 2,
+                    "EU27_2007": 3,
+                    "EA": 4,
+                    "EA20": 5,
+                    "EA19": 6,
+                    "EA18": 7,
+                    "BE": 8,
+                    "BG": 9,
+                    "CZ": 10,
+                    "DK": 11,
+                    "DE": 12,
+                    "EE": 13,
+                    "IE": 14,
+                    "EL": 15,
+                    "ES": 16,
+                    "FR": 17,
+                    "HR": 18,
+                    "IT": 19,
+                    "CY": 20,
+                    "LV": 21,
+                    "LT": 22,
+                    "LU": 23,
+                    "HU": 24,
+                    "MT": 25,
+                    "NL": 26,
+                    "AT": 27,
+                    "PL": 28,
+                    "PT": 29,
+                    "RO": 30,
+                    "SI": 31,
+                    "SK": 32,
+                    "FI": 33,
+                    "SE": 34,
+                    "IS": 35,
+                    "NO": 36,
+                    "CH": 37,
+                    "UK": 38,
+                    "ME": 39,
+                    "MK": 40,
+                    "AL": 41,
+                    "RS": 42,
+                    "TR": 43,
+                    "XK": 44
+                },
+                "label": {
+                    "EU": "European Union (EU6-1958, EU9-1973, EU10-1981, EU12-1986, EU15-1995, EU25-2004, EU27-2007, EU28-2013, EU27-2020)",
+                    "EU27_2020": "European Union - 27 countries (from 2020)",
+                    "EU28": "European Union - 28 countries (2013-2020)",
+                    "EU27_2007": "European Union - 27 countries (2007-2013)",
+                    "EA": "Euro area (EA11-1999, EA12-2001, EA13-2007, EA15-2008, EA16-2009, EA17-2011, EA18-2014, EA19-2015, EA20-2023)",
+                    "EA20": "Euro area \u2013 20 countries (from 2023)",
+                    "EA19": "Euro area - 19 countries  (2015-2022)",
+                    "EA18": "Euro area - 18 countries (2014)",
+                    "BE": "Belgium",
+                    "BG": "Bulgaria",
+                    "CZ": "Czechia",
+                    "DK": "Denmark",
+                    "DE": "Germany",
+                    "EE": "Estonia",
+                    "IE": "Ireland",
+                    "EL": "Greece",
+                    "ES": "Spain",
+                    "FR": "France",
+                    "HR": "Croatia",
+                    "IT": "Italy",
+                    "CY": "Cyprus",
+                    "LV": "Latvia",
+                    "LT": "Lithuania",
+                    "LU": "Luxembourg",
+                    "HU": "Hungary",
+                    "MT": "Malta",
+                    "NL": "Netherlands",
+                    "AT": "Austria",
+                    "PL": "Poland",
+                    "PT": "Portugal",
+                    "RO": "Romania",
+                    "SI": "Slovenia",
+                    "SK": "Slovakia",
+                    "FI": "Finland",
+                    "SE": "Sweden",
+                    "IS": "Iceland",
+                    "NO": "Norway",
+                    "CH": "Switzerland",
+                    "UK": "United Kingdom",
+                    "ME": "Montenegro",
+                    "MK": "North Macedonia",
+                    "AL": "Albania",
+                    "RS": "Serbia",
+                    "TR": "T\u00fcrkiye",
+                    "XK": "Kosovo*"
+                }
+            }
+        },
+        "time": {
+            "label": "Time",
+            "category": {
+                "index": {
+                    "2024": 0
+                },
+                "label": {
+                    "2024": "2024"
+                }
+            }
+        }
+    },
+    "extension": {
+        "lang": "EN",
+        "id": "ILC_DI08",
+        "agencyId": "ESTAT",
+        "version": "1.0",
+        "datastructure": {
+            "id": "ILC_DI08",
+            "agencyId": "ESTAT",
+            "version": "63.0"
+        },
+        "annotation": [
+            {
+                "type": "CREATED",
+                "date": "2009-03-27T17:52:43+0100"
+            },
+            {
+                "type": "DISSEMINATION_DOI_XML",
+                "title": "<adms:identifier xmlns:adms=\"http://www.w3.org/ns/adms#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core.html\" xmlns:dct=\"http://purl.org/dc/terms/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"><adms:Identifier rdf:about=\"https://doi.org/10.2908/ILC_DI08\"><skos:notation rdf:datatype=\"http://purl.org/spar/datacite/doi\">10.2908/ILC_DI08</skos:notation><dct:creator rdf:resource=\"http://publications.europa.eu/resource/authority/corporate-body/ESTAT\"/><dct:issued rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2023-01-19</dct:issued></adms:Identifier></adms:identifier>"
+            },
+            {
+                "type": "DISSEMINATION_OBJECT_TYPE",
+                "title": "DATASET"
+            },
+            {
+                "type": "DISSEMINATION_TIMESTAMP_DATA",
+                "date": "2025-07-24T23:00:00+0200"
+            },
+            {
+                "type": "DISSEMINATION_TIMESTAMP_GLOBAL",
+                "date": "2025-07-24T23:00:00+0200"
+            },
+            {
+                "type": "DISSEMINATION_TIMESTAMP_PLANNED",
+                "date": "2025-07-24T23:00:00+0200"
+            },
+            {
+                "type": "ESMS_HTML",
+                "title": "Explanatory texts (metadata)",
+                "href": "https://ec.europa.eu/eurostat/cache/metadata/en/ilc_sieusilc.htm"
+            },
+            {
+                "type": "ESMS_SDMX",
+                "title": "Explanatory texts (metadata)",
+                "href": "https://ec.europa.eu/eurostat/api/dissemination/files?file=metadata/ilc_sieusilc.sdmx.zip"
+            },
+            {
+                "type": "OBS_COUNT",
+                "title": "117762"
+            },
+            {
+                "type": "OBS_PERIOD_OVERALL_LATEST",
+                "title": "2024"
+            },
+            {
+                "type": "OBS_PERIOD_OVERALL_OLDEST",
+                "title": "2003"
+            },
+            {
+                "type": "SOURCE_INSTITUTIONS",
+                "text": "Eurostat"
+            },
+            {
+                "type": "UPDATE_DATA",
+                "date": "2025-07-24T23:00:00+0200"
+            },
+            {
+                "type": "UPDATE_STRUCTURE",
+                "date": "2025-01-27T23:00:00+0100"
+            }
+        ],
+        "status": {
+            "label": {
+                "b": "break in time series",
+                "p": "provisional"
+            }
+        },
+        "positions-with-no-data": {
+            "freq": [],
+            "indic_il": [],
+            "unit": [],
+            "isced11": [],
+            "sex": [],
+            "age": [],
+            "geo": [
+                0,
+                2,
+                3,
+                4,
+                6,
+                7,
+                35,
+                37,
+                38,
+                39,
+                40,
+                41,
+                44
+            ],
+            "time": []
+        }
+    }
+}
