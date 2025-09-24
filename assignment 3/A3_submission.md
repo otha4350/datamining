@@ -17,7 +17,9 @@ Two species are "merged" and one outlier gets its own cluster, but i would say m
 ## Task 2: Preprocessing
 
 **Is it better to rescale before or after detecting and filtering out the outliers?**  
-it is better to remove outliers before rescaling. Otherwise, you don't get your full "range of movement" since the outliers shift the rescaling. 
+For chosen method it was better to remove outliers before rescaling. Otherwise, you don't get your full "range of movement" since the outliers shift the rescaling. 
+
+When using LocalOutlierFactor we found that normalization before removing outlier worked better as we got a more reasonable distance between Max, Min values and the Mean value in two of the attributes compared to removing outliers and then normalizing. The disadvantage of doing this is that the data then have to be rescaled after removing the outliers. 
 
 **Corresponds (more or less) to the three expected species?** **YES/NO**  
 Yes
@@ -73,4 +75,5 @@ Yes
 
 ### K-Distances
 - **Which K did you use?**  
+
 - **According to the k-distances plot, what value(s) of epsilon would you consider as a parameter to DB-Scan and why?**  
