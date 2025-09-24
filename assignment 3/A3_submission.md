@@ -41,7 +41,7 @@ Yes
 ## Task 3: Choice of K
 
 - **Which K corresponds to the best clustering? (using the Davies-Bouldin index).**  
-
+2
 ---
 
 ## Task 4: Hierarchical Clustering
@@ -51,23 +51,25 @@ Yes
 **Cluster sizes:**
 | Cluster | Records |
 |---------|----------|
-| 1       |          |
-| 2       |          |
+| 1       |  192     |
+| 2       |  105     |
 
 - **Which approaches producing (more or less) correct clustering corresponding to the three species, if any?**
 
 | Method       | Correct? |
 |--------------|----------|
-| SingleLink   |          |
-| CompleteLink |          |
-| AverageLink  |          |
+| SingleLink   | No |
+| CompleteLink |  setting clusters = 3 gives correct clusters and the dendrogram has wide separation into 3  |
+| AverageLink  |  setting clusters = 3 gives correct clusters but the dendrogram has shallow separation for 3   |
 
 ---
 
 ## Task 5: DB-Scan
 
 - **How many clusters does DB-SCAN find with eps=1, min_samples=5?**  
+1 
 - **Can you give a value for epsilon leading to two clusters (plus noise)?**  
+0.25
 
 ### K-Distances
 - **Which K did you use?**  
