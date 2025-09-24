@@ -2,14 +2,16 @@
 
 ## Task 1: k-Means
 
-- **Corresponds (more or less) to the three expected species?** **YES/NO**  
+- **Corresponds (more or less) to the three expected species?**
+No  
 
 **Number of records in each cluster:**
-| Cluster | Records |
+| Cluster | Records  |
 |---------|----------|
-| 1       |          |
-| 2       |          |
-| 3       |          |
+| 1       | 112      |
+| 2       | 103      |
+| 3       | 85       |
+Varying
 
 ---
 
@@ -50,7 +52,8 @@
 | 1       |          |
 | 2       |          |
 
-**Which approaches producing (more or less) correct clustering corresponding to the three species, if any?**
+- **Which approaches producing (more or less) correct clustering corresponding to the three species, if any?**
+
 | Method       | Correct? |
 |--------------|----------|
 | SingleLink   |          |
