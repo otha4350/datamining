@@ -3,36 +3,38 @@
 ## Task 1: k-Means
 
 - **Corresponds (more or less) to the three expected species?**
-No  
+Two species are "merged" and one outlier gets its own cluster, but i would say more or less it's accurate  
 
 **Number of records in each cluster:**
 | Cluster | Records  |
 |---------|----------|
-| 1       | 112      |
-| 2       | 103      |
-| 3       | 85       |
-Varying
+| 1       | 193      |
+| 2       | 1        |
+| 3       | 106      |
 
 ---
 
 ## Task 2: Preprocessing
 
 **Is it better to rescale before or after detecting and filtering out the outliers?**  
+it is better to remove outliers before rescaling. Otherwise, you don't get your full "range of movement" since the outliers shift the rescaling. 
+
 **Corresponds (more or less) to the three expected species?** **YES/NO**  
+Yes
 
 **Number of records in each cluster:**
 | Cluster | Records |
 |---------|----------|
-| 1       |          |
-| 2       |          |
-| 3       |          |
+| 1       | 97  |
+| 2       | 105 |
+| 3       | 95 |
 
 **Coordinates of the three centroids:**
 | Cluster | PW | PL | SW | SL |
 |---------|----|----|----|----|
-| 1       |    |    |    |    |
-| 2       |    |    |    |    |
-| 3       |    |    |    |    |
+| 1| 0.64291899 | 0.75259259 | 0.20938578 | 0.11684982|
+| 2| 0.83568011 | 0.65052632 | 0.78443936 | 0.8048583 |
+| 3| 0.77212478 | 0.59908362 | 0.62109667 | 0.5222046 |
 
 ---
 
