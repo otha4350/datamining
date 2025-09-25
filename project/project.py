@@ -46,19 +46,26 @@ def dump_data():
             json.dump(data, f)
 
 def fill_df(datasets):
-    df = pd.DataFrame(columns=datasets.keys())
-
+    df = pd.DataFrame()
     #ilc_di08
     ...
     #ilc_di18
-    ilc_di18 = datasets["ilc_di18"]
-    index = ilc_di18["dimension"]["geo"]["category"]["index"]
-    values = ilc_di18["value"]
-    for country, i in index.items():
-        val = values[str(i)] if str(i) in values.keys() else None
-        print(val)
-        df.loc[country, "ilc_di18"] = val
-    print(df)
+    for set in datasets:
+        
+        ilc_di18 = datasets[set]
+        print(ilc_di18, set)
+        listStr = "cities"
+        if ("ilc" in set) or ("hbs" in set) or ("lfsa" in set) or ("spr" in set):
+            listStr = "geo"
+        index = ilc_di18["dimension"][listStr]["category"]["index"]
+        values = ilc_di18["value"]
+        for country, i in index.items():
+            val = values[str(i)] if str(i) in values.keys() else None
+            ctr = country
+            if (listStr == "cities"):
+                ctr = country[0:2]
+            df.loc[ctr, ilc_di18["label"][0:10]] = val
+    return df
 
 
 if __name__ == "__main__":
@@ -68,3 +75,11 @@ if __name__ == "__main__":
     df = fill_df(datasets)
     #pca och sånt
     #clustering
+    print("########################")   
+
+    print(df)
+
+    print("########################")
+
+
+    print(df.loc["SE"])
