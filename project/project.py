@@ -45,20 +45,40 @@ def dump_data():
         with open(f"{dsname}.json", "w") as f:
             json.dump(data, f)
 
-def fill_df(datasets):
-    df = pd.DataFrame(columns=datasets.keys())
+def handle_one_dataset(dataset, dataset_name):
+    dim_sizes = dataset["size"]
+    dim_ids = dataset["id"]
+    dims = [(s, id) for s,id in zip(dim_sizes, dim_ids) if s > 1 and id!="geo" and id!="cities"]
 
-    #ilc_di08
-    ...
-    #ilc_di18
-    ilc_di18 = datasets["ilc_di18"]
-    index = ilc_di18["dimension"]["geo"]["category"]["index"]
-    values = ilc_di18["value"]
-    for country, i in index.items():
-        val = values[str(i)] if str(i) in values.keys() else None
-        print(val)
-        df.loc[country, "ilc_di18"] = val
-    print(df)
+    dim_names = [(dataset_name, 0)]
+    for dim_number, dim_id in dims:
+        new_dim_names = []
+        for dim_name, dim_index in dim_names:
+            for key_name,key_index in dataset["dimension"][dim_id]["category"]["index"].items():
+                new_dim_names.append((dim_name+"_"+key_name, dim_index * dim_number + key_index))
+        dim_names = new_dim_names
+
+    df = pd.DataFrame(columns=list([name for name, _ in dim_names]))
+    if "geo" in dataset["dimension"]:
+        index = dataset["dimension"]["geo"]["category"]["index"]
+    else:
+        index = dataset["dimension"]["cities"]["category"]["index"]
+        index = {city[:2]:v for city,v in index.items()}
+
+
+    values = dataset["value"]
+    for dim_name, dim_index in dim_names:
+        for country, i in index.items():
+            i_shifted = i * dim_index
+            val = values[str(i_shifted)] if str(i_shifted) in values.keys() else None
+            df.loc[country, dim_name] = val
+
+    return df
+
+def fill_df(datasets):
+    datasets = [handle_one_dataset(data, name) for name, data in datasets.items()]
+    df = pd.concat(datasets, axis="columns")
+    return df
 
 
 if __name__ == "__main__":
@@ -66,5 +86,6 @@ if __name__ == "__main__":
         dump_data()
     datasets = {dsname: json.load(open(dsname + ".json")) for dsname in dataset_urls.keys()}
     df = fill_df(datasets)
+    
     #pca och sånt
     #clustering
