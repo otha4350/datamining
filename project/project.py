@@ -89,3 +89,11 @@ if __name__ == "__main__":
     
     #pca och sånt
     #clustering
+    print("########################")   
+
+    print(df)
+
+    print("########################")
+
+
+    print(df.loc["SE"])
