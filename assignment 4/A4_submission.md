@@ -15,8 +15,8 @@ This document contains questions to help you reflect about the operations applie
 
 | Class | Instances |
 |------ | --------- |
-| A     |           |
-| N     |           |
+| A     | 960       |
+| N     |     240   |
 
 ---
 
@@ -25,8 +25,8 @@ This document contains questions to help you reflect about the operations applie
 **Performance Results:**
 | Metric            | Value |
 | ----------------- | ----- |
-| AUC-ROC           |       |
-| Average Precision |       |
+| AUC-ROC           | 0.8235|
+| Average Precision | 0.4754|
 
 **Visualization Results:**
 (Please paste the images you have retrieved in Task 1)
