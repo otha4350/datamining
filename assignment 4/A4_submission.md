@@ -7,9 +7,9 @@ This document contains questions to help you reflect about the operations applie
 ## Task 0: Warm-up
 
 - **Number of instances:**
-???
+1200
 - **Number of attributes:**
-???
+2
 
 **Number of instances in each class:**
 
@@ -29,7 +29,7 @@ This document contains questions to help you reflect about the operations applie
 | Average Precision | 0.4754|
 
 **Visualization Results:**
-(Please paste the images you have retrieved in Task 1)
+See the attatched image
 
 ---
 
@@ -60,18 +60,17 @@ LOF is worse for this dataset BUT is way less sensitive to hyperparameters as th
 ## Task 4: Real-world Anomaly Detection
 
 - **Which algorithms and metrics have you chosen for this task? Report and explain the results from your analysis.**
-???
+| Algorithms     |  AUC-ROC  | Average Precision |
+|----------------|-----------|-------------------|
+| LOF            | 0.5899    | 0.1953            |
+| IForest        | 0.9326    | 0.5549            |
+| OCSVM          | 0.6092    | 0.2013            |
+
+In this specific case the isolation forest greatly outperformed both the local outlier factor and one-class SVM. This might be due to the overall density in the dataset being low with little variance, meaning densisty/distance related functions might perform worse. 
 
 - **Have you noticed any difference between the metrics in use and the chosen algorithm?**
-???
+While LOF and OSCVM perform more similarly to each other the AUC-ROC metric is way higher for the Isolation forest algorithm. This might be due to it not relying on distance for classification. 
 
 - **Which algorithm seems more appropriate for this task?**  
-???
-
----
-
-## Task 5 (Optional): Improving Detection Performance
-
-- **Which strategies have you tried for improving the performance? Did they work? If not, can you explain why?**  
-???
+Given its splendid perofmance, the isolation forest algorithm seems most appropriate for the cardio data set. Since the isolation forest is also used in other health-care related datasets it is the best candidate.
 
