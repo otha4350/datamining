@@ -153,7 +153,7 @@ def cluster(d: pd.DataFrame):
     # plot_dendrogram(agg_single, truncate_mode="level", p=3)
     # plt.xlabel("Number of points in node (or index of point if no parenthesis).")
     # plt.show()
-    print(silhouette_score(d,agg_single))
+    print(silhouette_score(d,agg_single.labels_))
     return agg_single
 
 def draw_data(d: pd.DataFrame, clustering):
