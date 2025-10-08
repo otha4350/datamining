@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
-from sklearn.metrics import silhouette_score
+from sklearn.metrics import silhouette_score, davies_bouldin_score
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -17,6 +17,7 @@ import plotly.graph_objects as go
 from plotly.offline import plot
 from plotly.colors import qualitative
 import matplotlib.colors as mcolors
+from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score
 
 GET_DATA = True
 
@@ -98,29 +99,30 @@ def fill_df(datasets):
 
 def preprocess_data(df: pd.DataFrame):
     df = df.drop(['EU', 'EU27_2020', 'EU28', 'EU27_2007', 'EA', 'EA20', 'EA19', 'EA18', 'EU25', 'EU15', 'EA17', 'EA13', 'EA12', 'EEA30_2007', 'EEA28',
-       'EFTA','EEA_X_LI', 'EFTA_X_LI'])
+       'EFTA','EEA_X_LI', 'EFTA_X_LI'], errors='ignore')
 
     # print(df.isna().sum(axis=1))
-    df = df.dropna(axis=1, thresh=int(0.5*len(df.index)))
     df = df.dropna(axis=0, thresh=int(0.5*len(df.columns)))
+    df = df.dropna(axis=1, thresh=int(0.5*len(df.index)))
     # print(df.isna().sum(axis=0))
+    # print(df.isna().sum(axis=1))
     df = df.infer_objects(copy=True)
     df = df.fillna(df.mean())
     df = df.dropna(axis=1)
     # print(df.isna().sum(axis=1))
 
-    minmax_scaled=MinMaxScaler(copy=True).set_output(transform="pandas").fit_transform(df)
-    scaled = StandardScaler().set_output(transform="pandas").fit_transform(minmax_scaled)
+    scaled=MinMaxScaler(copy=True).set_output(transform="pandas").fit_transform(df)
+    standarded = StandardScaler().set_output(transform="pandas").fit_transform(scaled)
     pca = PCA(n_components=0.95)
-    pcaed_data = pca.set_output(transform="pandas").fit_transform(scaled)
-
+    pcaed = pca.set_output(transform="pandas").fit_transform(standarded)
+    # print(pca.components_)
     # for i in range(1,len(pca.explained_variance_ratio_)):
     #     print(f"explained variance ratio pca={i}:", sum(pca.explained_variance_ratio_[:i]))
     # scree plot
     # plt.plot(range(len(pca.explained_variance_ratio_)),pca.explained_variance_)
     # plt.show()
     # print(pca.components_)
-    return pcaed_data
+    return pcaed
 
 def cluster(d: pd.DataFrame):
     def plot_dendrogram(model, **kwargs):
@@ -145,15 +147,25 @@ def cluster(d: pd.DataFrame):
         # Plot the corresponding dendrogram
         dendrogram(linkage_matrix, labels=list(d.index), **kwargs)
     
-    agg_single = AgglomerativeClustering(n_clusters=None, distance_threshold=5, linkage="complete")
+    # agg_single = AgglomerativeClustering(n_clusters=4, distance_threshold=None, linkage="complete")
+    # agg_single.fit(d)
+    # print(silhouette_score(d,agg_single.labels_), agg_single.get_params()["linkage"])
+    # agg_single = AgglomerativeClustering(n_clusters=4, distance_threshold=None, linkage="single")
+    # agg_single.fit(d)
+    # print(silhouette_score(d,agg_single.labels_), agg_single.get_params()["linkage"])
+    agg_single = AgglomerativeClustering(n_clusters=5, distance_threshold=None, linkage="average")
     agg_single.fit(d)
+    print(silhouette_score(d,agg_single.labels_), agg_single.get_params()["linkage"])
+    # agg_single = AgglomerativeClustering(n_clusters=8, distance_threshold=None, linkage="ward")
+    # agg_single.fit(d)
+    # print(agg_single.get_params()["linkage"], "linkage sil:",silhouette_score(d,agg_single.labels_) )
 
     # plt.title(f"Hierarchical Clustering Dendrogram - {agg_single.get_params()["linkage"]} linkage")
     # # plot the top three levels of the dendrogram
     # plot_dendrogram(agg_single, truncate_mode="level", p=3)
     # plt.xlabel("Number of points in node (or index of point if no parenthesis).")
     # plt.show()
-    print(silhouette_score(d,agg_single.labels_))
+    # print(silhouette_score(d,agg_single.labels_))
     return agg_single
 
 def draw_data(d: pd.DataFrame, clustering):
@@ -227,6 +239,26 @@ def draw_map(d, clustering):
     plot(fig)
     
 
+def dataset_influence_analysis(datasets, original_labels):
+    influences = {}
+    for dsname in datasets.keys():
+        # Remove one dataset
+        reduced_datasets = {k: v for k, v in datasets.items() if k != dsname}
+        df_reduced = fill_df(reduced_datasets)
+        df_reduced = preprocess_data(df_reduced)
+        clustering_reduced = cluster(df_reduced)
+        # Compare cluster labels (align by country index)
+        common_idx = df_reduced.index.intersection(df.index)
+        ari = adjusted_rand_score(
+            original_labels[common_idx], clustering_reduced.labels_[df_reduced.index.get_indexer(common_idx)]
+        )
+        nmi = normalized_mutual_info_score(
+            original_labels[common_idx], clustering_reduced.labels_[df_reduced.index.get_indexer(common_idx)]
+        )
+        influences[dsname] = {"ARI": ari, "NMI": nmi}
+        print(f"Removed {dsname}: ARI={ari:.3f}, NMI={nmi:.3f}")
+    return influences
+
 if __name__ == "__main__":
     if GET_DATA:
         dump_data()
@@ -239,11 +271,13 @@ if __name__ == "__main__":
     
     #clustering
     clustering = cluster(df)
+    # Influence analysis
+    print(dataset_influence_analysis(datasets, pd.Series(clustering.labels_, index=df.index)))
 
     # davis-balding index /silhouette score
     # check influence of each dataset
     # does the clusters make sense
 
-    draw_data(df, clustering)
+    # draw_data(df, clustering)
     # print(df.index)
-    # draw_map(df, clustering)
+    draw_map(df, clustering)
