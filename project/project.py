@@ -18,6 +18,9 @@ from plotly.offline import plot
 from plotly.colors import qualitative
 import matplotlib.colors as mcolors
 from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score
+from IPython.display import HTML
+from matplotlib import animation
+from math import sin
 
 GET_DATA = True
 
@@ -221,7 +224,7 @@ def draw_data(d: pd.DataFrame, clustering):
         ax.add_artist(tag)
 
     # create figure        
-    fig = plt.figure(dpi=60)
+    fig = plt.figure(figsize=(5,4))
     ax = fig.add_subplot(projection='3d')
 
     # plot vertices
@@ -234,7 +237,15 @@ def draw_data(d: pd.DataFrame, clustering):
         annotate3D(ax, s=str(list(d.index)[j]), xyz=xyz_, fontsize=10, xytext=(-3,3),
                 textcoords='offset points', ha='right',va='bottom')    
     
-    plt.show()
+    framecount = 400
+    def animate(frame):
+        ax.view_init(30 + 5*sin(25*(frame/framecount)), (frame/framecount)*360)
+        plt.pause(.001)
+        return fig
+
+    anim = animation.FuncAnimation(fig, animate, frames=framecount, interval=50)
+    # HTML(anim.to_html5_video())
+    anim.save("clustering_animation.gif", writer="pillow")
 
 def draw_map(d, clustering):
     with open("europe.geojson", "r", encoding="utf-8") as f:
@@ -292,13 +303,14 @@ if __name__ == "__main__":
     #clustering
     # clustering = cluster(df)
     # Influence analysis
-    
+    # 
     # dataset_influence_analysis(df, clustering)
 
     # davis-balding index /silhouette score
     # check influence of each dataset
     # does the clusters make sense
 
-    # draw_data(df, clustering)
+    draw_data(df, clustering)
     # print(df.index)
+    # draw_map(df, clustering)
     # draw_map(df, clustering)
