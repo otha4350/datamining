@@ -1,1 +1,269 @@
-{"version": "2.0", "class": "dataset", "label": "Income in real terms (2010 SILC=100)", "source": "ESTAT", "updated": "2025-10-01T11:00:00+0200", "value": {"21": 107.21, "2": 111.66, "3": 181.09, "14": 103.42, "4": 120.51, "6": 106.96, "5": 106.3, "1": 104.91, "7": 161.38, "9": 74.23, "10": 101.66, "0": 120.25, "27": 101.17, "11": 98.25, "12": 157.3, "18": 150.55, "8": 133.57, "13": 97.2, "16": 186.89, "17": 114.53, "15": 187.51, "19": 146.76, "20": 112.46, "30": 112.56, "22": 178.73, "23": 112.6, "24": 262.21, "28": 115.21, "25": 122.59, "26": 109.09, "33": 192.17}, "status": {"12": "b", "16": "p"}, "id": ["freq", "statinfo", "unit", "geo", "time"], "size": [1, 1, 1, 34, 1], "dimension": {"freq": {"label": "Time frequency", "category": {"index": {"A": 0}, "label": {"A": "Annual"}}}, "statinfo": {"label": "Statistical information", "category": {"index": {"MED": 0}, "label": {"MED": "Median"}}}, "unit": {"label": "Unit of measure", "category": {"index": {"INX": 0}, "label": {"INX": "Index"}}}, "geo": {"label": "Geopolitical entity (reporting)", "category": {"index": {"EU27_2020": 0, "EA20": 1, "BE": 2, "BG": 3, "CZ": 4, "DK": 5, "DE": 6, "EE": 7, "IE": 8, "EL": 9, "ES": 10, "FR": 11, "HR": 12, "IT": 13, "CY": 14, "LV": 15, "LT": 16, "LU": 17, "HU": 18, "MT": 19, "NL": 20, "AT": 21, "PL": 22, "PT": 23, "RO": 24, "SI": 25, "SK": 26, "FI": 27, "SE": 28, "IS": 29, "NO": 30, "CH": 31, "UK": 32, "TR": 33}, "label": {"EU27_2020": "European Union - 27 countries (from 2020)", "EA20": "Euro area \u2013 20 countries (from 2023)", "BE": "Belgium", "BG": "Bulgaria", "CZ": "Czechia", "DK": "Denmark", "DE": "Germany", "EE": "Estonia", "IE": "Ireland", "EL": "Greece", "ES": "Spain", "FR": "France", "HR": "Croatia", "IT": "Italy", "CY": "Cyprus", "LV": "Latvia", "LT": "Lithuania", "LU": "Luxembourg", "HU": "Hungary", "MT": "Malta", "NL": "Netherlands", "AT": "Austria", "PL": "Poland", "PT": "Portugal", "RO": "Romania", "SI": "Slovenia", "SK": "Slovakia", "FI": "Finland", "SE": "Sweden", "IS": "Iceland", "NO": "Norway", "CH": "Switzerland", "UK": "United Kingdom", "TR": "T\u00fcrkiye"}}}, "time": {"label": "Time", "category": {"index": {"2024": 0}, "label": {"2024": "2024"}}}}, "extension": {"lang": "EN", "id": "ILC_DI18", "agencyId": "ESTAT", "version": "1.0", "datastructure": {"id": "ILC_DI18", "agencyId": "ESTAT", "version": "25.0"}, "annotation": [{"type": "CREATED", "date": "2023-09-19T11:31:09+0200"}, {"type": "DISSEMINATION_DOI_XML", "title": "<adms:identifier xmlns:adms=\"http://www.w3.org/ns/adms#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core.html\" xmlns:dct=\"http://purl.org/dc/terms/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"><adms:Identifier rdf:about=\"https://doi.org/10.2908/ILC_DI18\"><skos:notation rdf:datatype=\"http://purl.org/spar/datacite/doi\">10.2908/ILC_DI18</skos:notation><dct:creator rdf:resource=\"http://publications.europa.eu/resource/authority/corporate-body/ESTAT\"/><dct:issued rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2024-02-06</dct:issued></adms:Identifier></adms:identifier>"}, {"type": "DISSEMINATION_OBJECT_TYPE", "title": "DATASET"}, {"type": "DISSEMINATION_TIMESTAMP_DATA", "date": "2025-10-01T11:00:00+0200"}, {"type": "DISSEMINATION_TIMESTAMP_GLOBAL", "date": "2025-10-01T11:00:00+0200"}, {"type": "DISSEMINATION_TIMESTAMP_PLANNED", "date": "2025-10-01T11:00:00+0200"}, {"type": "ESMS_HTML", "title": "Explanatory texts (metadata)", "href": "https://ec.europa.eu/eurostat/cache/metadata/en/ilc_sieusilc.htm"}, {"type": "ESMS_SDMX", "title": "Explanatory texts (metadata)", "href": "https://ec.europa.eu/eurostat/api/dissemination/files?file=metadata/ilc_sieusilc.sdmx.zip"}, {"type": "OBS_COUNT", "title": "465"}, {"type": "OBS_PERIOD_OVERALL_LATEST", "title": "2024"}, {"type": "OBS_PERIOD_OVERALL_OLDEST", "title": "2011"}, {"type": "SOURCE_INSTITUTIONS", "text": "Eurostat"}, {"type": "UPDATE_DATA", "date": "2025-10-01T11:00:00+0200"}, {"type": "UPDATE_STRUCTURE", "date": "2025-01-27T23:00:00+0100"}], "status": {"label": {"b": "break in time series", "p": "provisional"}}, "positions-with-no-data": {"freq": [], "statinfo": [], "unit": [], "geo": [29, 31, 32], "time": []}}}
+{
+    "version": "2.0",
+    "class": "dataset",
+    "label": "Income in real terms (2010 SILC=100)",
+    "source": "ESTAT",
+    "updated": "2025-10-01T11:00:00+0200",
+    "value": {
+        "21": 107.21,
+        "2": 111.66,
+        "3": 181.09,
+        "14": 103.42,
+        "4": 120.51,
+        "6": 106.96,
+        "5": 106.3,
+        "1": 104.91,
+        "7": 161.38,
+        "9": 74.23,
+        "10": 101.66,
+        "0": 120.25,
+        "27": 101.17,
+        "11": 98.25,
+        "12": 157.3,
+        "18": 150.55,
+        "8": 133.57,
+        "13": 97.2,
+        "16": 186.89,
+        "17": 114.53,
+        "15": 187.51,
+        "19": 146.76,
+        "20": 112.46,
+        "30": 112.56,
+        "22": 178.73,
+        "23": 112.6,
+        "24": 262.21,
+        "28": 115.21,
+        "25": 122.59,
+        "26": 109.09,
+        "33": 192.17
+    },
+    "status": {
+        "12": "b",
+        "16": "p"
+    },
+    "id": [
+        "freq",
+        "statinfo",
+        "unit",
+        "geo",
+        "time"
+    ],
+    "size": [
+        1,
+        1,
+        1,
+        34,
+        1
+    ],
+    "dimension": {
+        "freq": {
+            "label": "Time frequency",
+            "category": {
+                "index": {
+                    "A": 0
+                },
+                "label": {
+                    "A": "Annual"
+                }
+            }
+        },
+        "statinfo": {
+            "label": "Statistical information",
+            "category": {
+                "index": {
+                    "MED": 0
+                },
+                "label": {
+                    "MED": "Median"
+                }
+            }
+        },
+        "unit": {
+            "label": "Unit of measure",
+            "category": {
+                "index": {
+                    "INX": 0
+                },
+                "label": {
+                    "INX": "Index"
+                }
+            }
+        },
+        "geo": {
+            "label": "Geopolitical entity (reporting)",
+            "category": {
+                "index": {
+                    "EU27_2020": 0,
+                    "EA20": 1,
+                    "BE": 2,
+                    "BG": 3,
+                    "CZ": 4,
+                    "DK": 5,
+                    "DE": 6,
+                    "EE": 7,
+                    "IE": 8,
+                    "EL": 9,
+                    "ES": 10,
+                    "FR": 11,
+                    "HR": 12,
+                    "IT": 13,
+                    "CY": 14,
+                    "LV": 15,
+                    "LT": 16,
+                    "LU": 17,
+                    "HU": 18,
+                    "MT": 19,
+                    "NL": 20,
+                    "AT": 21,
+                    "PL": 22,
+                    "PT": 23,
+                    "RO": 24,
+                    "SI": 25,
+                    "SK": 26,
+                    "FI": 27,
+                    "SE": 28,
+                    "IS": 29,
+                    "NO": 30,
+                    "CH": 31,
+                    "UK": 32,
+                    "TR": 33
+                },
+                "label": {
+                    "EU27_2020": "European Union - 27 countries (from 2020)",
+                    "EA20": "Euro area \u2013 20 countries (from 2023)",
+                    "BE": "Belgium",
+                    "BG": "Bulgaria",
+                    "CZ": "Czechia",
+                    "DK": "Denmark",
+                    "DE": "Germany",
+                    "EE": "Estonia",
+                    "IE": "Ireland",
+                    "EL": "Greece",
+                    "ES": "Spain",
+                    "FR": "France",
+                    "HR": "Croatia",
+                    "IT": "Italy",
+                    "CY": "Cyprus",
+                    "LV": "Latvia",
+                    "LT": "Lithuania",
+                    "LU": "Luxembourg",
+                    "HU": "Hungary",
+                    "MT": "Malta",
+                    "NL": "Netherlands",
+                    "AT": "Austria",
+                    "PL": "Poland",
+                    "PT": "Portugal",
+                    "RO": "Romania",
+                    "SI": "Slovenia",
+                    "SK": "Slovakia",
+                    "FI": "Finland",
+                    "SE": "Sweden",
+                    "IS": "Iceland",
+                    "NO": "Norway",
+                    "CH": "Switzerland",
+                    "UK": "United Kingdom",
+                    "TR": "T\u00fcrkiye"
+                }
+            }
+        },
+        "time": {
+            "label": "Time",
+            "category": {
+                "index": {
+                    "2024": 0
+                },
+                "label": {
+                    "2024": "2024"
+                }
+            }
+        }
+    },
+    "extension": {
+        "lang": "EN",
+        "id": "ILC_DI18",
+        "agencyId": "ESTAT",
+        "version": "1.0",
+        "datastructure": {
+            "id": "ILC_DI18",
+            "agencyId": "ESTAT",
+            "version": "25.0"
+        },
+        "annotation": [
+            {
+                "type": "CREATED",
+                "date": "2023-09-19T11:31:09+0200"
+            },
+            {
+                "type": "DISSEMINATION_DOI_XML",
+                "title": "<adms:identifier xmlns:adms=\"http://www.w3.org/ns/adms#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core.html\" xmlns:dct=\"http://purl.org/dc/terms/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"><adms:Identifier rdf:about=\"https://doi.org/10.2908/ILC_DI18\"><skos:notation rdf:datatype=\"http://purl.org/spar/datacite/doi\">10.2908/ILC_DI18</skos:notation><dct:creator rdf:resource=\"http://publications.europa.eu/resource/authority/corporate-body/ESTAT\"/><dct:issued rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2024-02-06</dct:issued></adms:Identifier></adms:identifier>"
+            },
+            {
+                "type": "DISSEMINATION_OBJECT_TYPE",
+                "title": "DATASET"
+            },
+            {
+                "type": "DISSEMINATION_TIMESTAMP_DATA",
+                "date": "2025-10-01T11:00:00+0200"
+            },
+            {
+                "type": "DISSEMINATION_TIMESTAMP_GLOBAL",
+                "date": "2025-10-01T11:00:00+0200"
+            },
+            {
+                "type": "DISSEMINATION_TIMESTAMP_PLANNED",
+                "date": "2025-10-01T11:00:00+0200"
+            },
+            {
+                "type": "ESMS_HTML",
+                "title": "Explanatory texts (metadata)",
+                "href": "https://ec.europa.eu/eurostat/cache/metadata/en/ilc_sieusilc.htm"
+            },
+            {
+                "type": "ESMS_SDMX",
+                "title": "Explanatory texts (metadata)",
+                "href": "https://ec.europa.eu/eurostat/api/dissemination/files?file=metadata/ilc_sieusilc.sdmx.zip"
+            },
+            {
+                "type": "OBS_COUNT",
+                "title": "465"
+            },
+            {
+                "type": "OBS_PERIOD_OVERALL_LATEST",
+                "title": "2024"
+            },
+            {
+                "type": "OBS_PERIOD_OVERALL_OLDEST",
+                "title": "2011"
+            },
+            {
+                "type": "SOURCE_INSTITUTIONS",
+                "text": "Eurostat"
+            },
+            {
+                "type": "UPDATE_DATA",
+                "date": "2025-10-01T11:00:00+0200"
+            },
+            {
+                "type": "UPDATE_STRUCTURE",
+                "date": "2025-01-27T23:00:00+0100"
+            }
+        ],
+        "status": {
+            "label": {
+                "b": "break in time series",
+                "p": "provisional"
+            }
+        },
+        "positions-with-no-data": {
+            "freq": [],
+            "statinfo": [],
+            "unit": [],
+            "geo": [
+                29,
+                31,
+                32
+            ],
+            "time": []
+        }
+    }
+}

@@ -90,6 +90,8 @@ def handle_one_dataset(dataset, dataset_name):
             val = values[str(i_shifted)] if str(i_shifted) in values.keys() else None
             df.loc[country, dim_name] = val
 
+    if dataset_name == "ilc_di18":
+        print(df)
     return df
 
 def fill_df(datasets):
@@ -97,7 +99,22 @@ def fill_df(datasets):
     df = pd.concat(datasets, axis="columns")
     return df
 
+def scale_data(df: pd.DataFrame):
+    df = df.drop("spr_net_func_TOTAL", axis=1, errors='ignore')
+    
+    df["ilc_di18"] = df["ilc_di18"] * 5
+
+    df["spr_net_func_SICK"] = df["spr_net_func_SICK"] / 6
+    df["spr_net_func_DIS"] = df["spr_net_func_DIS"] / 6
+    df["spr_net_func_OLD"] = df["spr_net_func_OLD"] / 6
+    df["spr_net_func_FAM"] = df["spr_net_func_FAM"] / 6
+    df["spr_net_func_UNE"] = df["spr_net_func_UNE"] / 6
+    df["spr_net_func_HOU"] = df["spr_net_func_HOU"] / 6
+    return df
+
 def preprocess_data(df: pd.DataFrame):
+    # print(df["ilc_di18"])
+
     df = df.drop(['EU', 'EU27_2020', 'EU28', 'EU27_2007', 'EA', 'EA20', 'EA19', 'EA18', 'EU25', 'EU15', 'EA17', 'EA13', 'EA12', 'EEA30_2007', 'EEA28',
        'EFTA','EEA_X_LI', 'EFTA_X_LI'], errors='ignore')
 
@@ -110,18 +127,28 @@ def preprocess_data(df: pd.DataFrame):
     df = df.fillna(df.mean())
     df = df.dropna(axis=1)
     # print(df.isna().sum(axis=1))
+    
+    
+    # print(df.info())
 
     scaled=MinMaxScaler(copy=True).set_output(transform="pandas").fit_transform(df)
     standarded = StandardScaler().set_output(transform="pandas").fit_transform(scaled)
+
+    rescaled = scale_data(standarded)
+    print(rescaled["ilc_di18"])
+
     pca = PCA(n_components=0.95)
-    pcaed = pca.set_output(transform="pandas").fit_transform(standarded)
+    pcaed = pca.set_output(transform="pandas").fit_transform(rescaled)
     # print(pca.components_)
     # for i in range(1,len(pca.explained_variance_ratio_)):
     #     print(f"explained variance ratio pca={i}:", sum(pca.explained_variance_ratio_[:i]))
     # scree plot
     # plt.plot(range(len(pca.explained_variance_ratio_)),pca.explained_variance_)
     # plt.show()
-    # print(pca.components_)
+    for i, component in enumerate(pca.components_):
+        print(f"PCA Component {i}:")
+        print(np.round(component, 2))
+        print()  # Add empty line for readability
     return pcaed
 
 def cluster(d: pd.DataFrame):
@@ -239,25 +266,18 @@ def draw_map(d, clustering):
     plot(fig)
     
 
-def dataset_influence_analysis(datasets, original_labels):
-    influences = {}
-    for dsname in datasets.keys():
-        # Remove one dataset
-        reduced_datasets = {k: v for k, v in datasets.items() if k != dsname}
-        df_reduced = fill_df(reduced_datasets)
-        df_reduced = preprocess_data(df_reduced)
-        clustering_reduced = cluster(df_reduced)
-        # Compare cluster labels (align by country index)
-        common_idx = df_reduced.index.intersection(df.index)
-        ari = adjusted_rand_score(
-            original_labels[common_idx], clustering_reduced.labels_[df_reduced.index.get_indexer(common_idx)]
-        )
-        nmi = normalized_mutual_info_score(
-            original_labels[common_idx], clustering_reduced.labels_[df_reduced.index.get_indexer(common_idx)]
-        )
-        influences[dsname] = {"ARI": ari, "NMI": nmi}
-        print(f"Removed {dsname}: ARI={ari:.3f}, NMI={nmi:.3f}")
-    return influences
+def dataset_influence_analysis(d, clustering):
+    df = d.copy()
+    df['cluster'] =  pd.Series(clustering.labels_, index=d.index)
+
+    cluster_means = df.groupby('cluster').mean()
+    # print(cluster_means)
+    
+    feature_importance = cluster_means.std(axis=0).sort_values(ascending=False)
+    print("Feature importance based on cluster means standard deviation:")
+    print(feature_importance)
+
+    return feature_importance
 
 if __name__ == "__main__":
     if GET_DATA:
@@ -267,12 +287,13 @@ if __name__ == "__main__":
     
     #pca och sånt
     # print(df.loc[["SE","XK", "AL", "BA", "PL"]].transpose())
-    df = preprocess_data(df)
+    # df = preprocess_data(df)
     
     #clustering
-    clustering = cluster(df)
+    # clustering = cluster(df)
     # Influence analysis
-    print(dataset_influence_analysis(datasets, pd.Series(clustering.labels_, index=df.index)))
+    
+    # dataset_influence_analysis(df, clustering)
 
     # davis-balding index /silhouette score
     # check influence of each dataset
@@ -280,4 +301,4 @@ if __name__ == "__main__":
 
     # draw_data(df, clustering)
     # print(df.index)
-    draw_map(df, clustering)
+    # draw_map(df, clustering)
