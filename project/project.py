@@ -310,7 +310,5 @@ if __name__ == "__main__":
     # check influence of each dataset
     # does the clusters make sense
 
-    draw_data(df, clustering)
+    # draw_data(df, clustering)
     # print(df.index)
-    # draw_map(df, clustering)
-    # draw_map(df, clustering)
