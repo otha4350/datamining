@@ -22,7 +22,7 @@ from IPython.display import HTML
 from matplotlib import animation
 from math import sin
 
-GET_DATA = True
+GET_DATA = False
 
 def get_request(url):
     try:
@@ -50,14 +50,14 @@ dataset_urls = {
     "hbs_exp_t111": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/3.0/data/dataflow/ESTAT/hbs_exp_t111/1.0/*.*.*?c[freq]=A&c[unit]=EUR_AE&c[geo]=EU27_2020,EU28,EU27_2007,EU25,EU15,EA,EA20,EA18,EA17,EA13,EA12,BE,BG,CZ,DK,DE,EE,IE,EL,ES,FR,HR,IT,CY,LV,LT,LU,HU,MT,NL,AT,PL,PT,RO,SI,SK,FI,SE,EEA30_2007,EEA28,EFTA,NO,UK,ME,MK,RS,TR,XK&c[TIME_PERIOD]=2020&compress=false&format=json&lang=en",
     # all activities ; Professional, scientific and technical activities
     "lfsa_ewhun2": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/3.0/data/dataflow/ESTAT/lfsa_ewhun2/1.0/*.*.*.*.*.*.*.*?c[freq]=A&c[nace_r2]=M&c[wstatus]=EMP&c[worktime]=TOTAL&c[age]=Y15-64&c[sex]=T&c[unit]=HR&c[geo]=EU27_2020,EA20,BE,BG,CZ,DK,DE,EE,IE,EL,ES,FR,HR,IT,CY,LV,LT,LU,HU,MT,NL,AT,PL,PT,RO,SI,SK,FI,SE,IS,NO,CH,UK,BA,ME,MK,RS,TR&c[TIME_PERIOD]=2024&compress=false&format=json&lang=en",
-    # 1 value
-    "crim_hom_ocit": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/3.0/data/dataflow/ESTAT/crim_hom_ocit/1.0/*.*.*?c[freq]=A&c[unit]=NR,P_HTHAB&c[cities]=BE001C,BG001C,CZ001C,DK001C,DE001C,EE001C,EL001C,ES001C,FR001C,HR001C,IT001C,CY001C,LV001C,LT001C,LU001C,HU001C,MT001C,NL001C,AT001C,PL001C,PT001C,RO001C,SI001C,SK001C,FI001C,IS001C,LI002C1,NO001C,CH001C,CH002C,BA001C1,ME001C,MK001C,AL001C,RS001C,TR012C,XK001C&c[TIME_PERIOD]=2023&compress=false&format=json&lang=en",
+    # Homicides in capital cities
+    # "crim_hom_ocit": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/3.0/data/dataflow/ESTAT/crim_hom_ocit/1.0/*.*.*?c[freq]=A&c[unit]=NR,P_HTHAB&c[cities]=BE001C,BG001C,CZ001C,DK001C,DE001C,EE001C,EL001C,ES001C,FR001C,HR001C,IT001C,CY001C,LV001C,LT001C,LU001C,HU001C,MT001C,NL001C,AT001C,PL001C,PT001C,RO001C,SI001C,SK001C,FI001C,IS001C,LI002C1,NO001C,CH001C,CH002C,BA001C1,ME001C,MK001C,AL001C,RS001C,TR012C,XK001C&c[TIME_PERIOD]=2023&compress=false&format=json&lang=en",
     # divided by education level and police/legal/political system
     # "ilc_pw03b": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/3.0/data/dataflow/ESTAT/ilc_pw03b/1.0/*.*.*.*.*.*.*.*?c[freq]=A&c[domain]=POLC,LEG,POLIT&c[statinfo]=AVG&c[isced11]=ED5_6&c[sex]=T&c[age]=Y_GE16&c[unit]=RTG&c[geo]=EU27_2020,BE,BG,CZ,DK,DE,EE,IE,EL,ES,FR,HR,IT,CY,LV,LT,LU,HU,MT,NL,AT,PL,PT,RO,SI,SK,FI,SE,IS,NO,CH,UK,ME,MK,RS,TR&c[TIME_PERIOD]=2013&compress=false&format=json&lang=en",
-    #divided by gross/net and euros/%GDP
+    # Social expense divided by gross/net and euros/%GDP
     "spr_net_gros": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/3.0/data/dataflow/ESTAT/spr_net_gros/1.0/*.*.*.*?c[freq]=A&c[spdeps]=TOTAL&c[indic_sp]=NSP_PC_GDP&c[geo]=EU27_2020,EU28,EU27_2007,EU15,EA20,EA19,EA18,EA12,BE,BG,CZ,DK,DE,EE,IE,EL,ES,FR,HR,IT,CY,LV,LT,LU,HU,MT,NL,AT,PL,PT,RO,SI,SK,FI,SE,EEA_X_LI,EFTA_X_LI,IS,NO,CH,UK,BA,ME,MK,RS,TR&c[TIME_PERIOD]=2022&compress=false&format=json&lang=en",
-    #divided by gross/net and by function (Total / Sickness/health care / Disability / Old age  / Family/children / Unemployment / Housing )
-    "spr_net_func": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/3.0/data/dataflow/ESTAT/spr_net_func/1.0/*.*.*.*.*?c[freq]=A&c[spfunc]=TOTAL,SICK,DIS,OLD,FAM,UNE,HOU&c[spdeps]=SPR&c[indic_sp]=NSP_PC_GDP&c[geo]=EU27_2020,EU28,EU27_2007,EU15,EA20,EA19,EA18,EA12,BE,BG,CZ,DK,DE,EE,IE,EL,ES,FR,HR,IT,CY,LV,LT,LU,HU,MT,NL,AT,PL,PT,RO,SI,SK,FI,SE,EEA_X_LI,EFTA_X_LI,IS,NO,CH,UK,BA,ME,MK,RS,TR&c[TIME_PERIOD]=2022&compress=false&format=json&lang=en",
+    # Social expense divided by gross/net and by function (Total / Sickness/health care / Disability / Old age  / Family/children / Unemployment / Housing )
+    # "spr_net_func": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/3.0/data/dataflow/ESTAT/spr_net_func/1.0/*.*.*.*.*?c[freq]=A&c[spfunc]=TOTAL,SICK,DIS,OLD,FAM,UNE,HOU&c[spdeps]=SPR&c[indic_sp]=NSP_PC_GDP&c[geo]=EU27_2020,EU28,EU27_2007,EU15,EA20,EA19,EA18,EA12,BE,BG,CZ,DK,DE,EE,IE,EL,ES,FR,HR,IT,CY,LV,LT,LU,HU,MT,NL,AT,PL,PT,RO,SI,SK,FI,SE,EEA_X_LI,EFTA_X_LI,IS,NO,CH,UK,BA,ME,MK,RS,TR&c[TIME_PERIOD]=2022&compress=false&format=json&lang=en",
 }
 def dump_data():
     for dsname, dsurl in dataset_urls.items():
@@ -77,6 +77,8 @@ def handle_one_dataset(dataset, dataset_name):
             for key_name,key_index in dataset["dimension"][dim_id]["category"]["index"].items():
                 new_dim_names.append((dim_name+"_"+key_name, dim_index * dim_number + key_index))
         dim_names = new_dim_names
+        
+    print(dim_names)
 
     df = pd.DataFrame(columns=list([name for name, _ in dim_names]))
     if "geo" in dataset["dimension"]:
@@ -85,16 +87,18 @@ def handle_one_dataset(dataset, dataset_name):
         index = dataset["dimension"]["cities"]["category"]["index"]
         index = {city[:2]:v for city,v in index.items()}
 
+    
 
     values = dataset["value"]
     for dim_name, dim_index in dim_names:
         for country, i in index.items():
-            i_shifted = i * dim_index
+            i_shifted = i * (dim_index + 1) 
+            # print(i_shifted)
             val = values[str(i_shifted)] if str(i_shifted) in values.keys() else None
             df.loc[country, dim_name] = val
 
-    if dataset_name == "ilc_di18":
-        print(df)
+    # if dataset_name == "ilc_di18":
+    #     print(df)
     return df
 
 def fill_df(datasets):
@@ -103,20 +107,26 @@ def fill_df(datasets):
     return df
 
 def scale_data(df: pd.DataFrame):
-    df = df.drop("spr_net_func_TOTAL", axis=1, errors='ignore')
-    
-    df["ilc_di18"] = df["ilc_di18"] * 5
 
-    df["spr_net_func_SICK"] = df["spr_net_func_SICK"] / 6
-    df["spr_net_func_DIS"] = df["spr_net_func_DIS"] / 6
-    df["spr_net_func_OLD"] = df["spr_net_func_OLD"] / 6
-    df["spr_net_func_FAM"] = df["spr_net_func_FAM"] / 6
-    df["spr_net_func_UNE"] = df["spr_net_func_UNE"] / 6
-    df["spr_net_func_HOU"] = df["spr_net_func_HOU"] / 6
+    try:
+        df["ilc_di18"] = df["ilc_di18"] * 1
+        df["lfsa_ewhun2"] = df["lfsa_ewhun2"] / 2
+        
+        df = df.drop("spr_net_func_TOTAL", axis=1, errors='ignore')
+        df["spr_net_func_SICK"] = df["spr_net_func_SICK"] / 6
+        df["spr_net_func_DIS"] = df["spr_net_func_DIS"] / 6
+        df["spr_net_func_OLD"] = df["spr_net_func_OLD"] / 6
+        df["spr_net_func_FAM"] = df["spr_net_func_FAM"] / 6
+        df["spr_net_func_UNE"] = df["spr_net_func_UNE"] / 6
+        df["spr_net_func_HOU"] = df["spr_net_func_HOU"] / 6
+    except Exception as e:
+        print("sorry din mamma", e)
     return df
 
 def preprocess_data(df: pd.DataFrame):
     # print(df["ilc_di18"])
+    # Change index 'EL' to 'GR' to conform Greece naming
+    df.index = df.index.map(lambda x: "GR" if x == "EL" else x)
 
     df = df.drop(['EU', 'EU27_2020', 'EU28', 'EU27_2007', 'EA', 'EA20', 'EA19', 'EA18', 'EU25', 'EU15', 'EA17', 'EA13', 'EA12', 'EEA30_2007', 'EEA28',
        'EFTA','EEA_X_LI', 'EFTA_X_LI'], errors='ignore')
@@ -138,7 +148,7 @@ def preprocess_data(df: pd.DataFrame):
     standarded = StandardScaler().set_output(transform="pandas").fit_transform(scaled)
 
     rescaled = scale_data(standarded)
-    print(rescaled["ilc_di18"])
+    # print(rescaled["ilc_di18"])
 
     pca = PCA(n_components=0.95)
     pcaed = pca.set_output(transform="pandas").fit_transform(rescaled)
@@ -152,6 +162,7 @@ def preprocess_data(df: pd.DataFrame):
         print(f"PCA Component {i}:")
         print(np.round(component, 2))
         print()  # Add empty line for readability
+    # pcaed = rescaled
     return pcaed
 
 def cluster(d: pd.DataFrame):
@@ -183,22 +194,25 @@ def cluster(d: pd.DataFrame):
     # agg_single = AgglomerativeClustering(n_clusters=4, distance_threshold=None, linkage="single")
     # agg_single.fit(d)
     # print(silhouette_score(d,agg_single.labels_), agg_single.get_params()["linkage"])
-    agg_single = AgglomerativeClustering(n_clusters=5, distance_threshold=None, linkage="average")
+    # 3 -> 0.259 siluete (average)
+    dt = 2
+    print("Distance threshold:", dt)
+    agg_single = AgglomerativeClustering(n_clusters=None, distance_threshold=dt, linkage="average")
     agg_single.fit(d)
     print(silhouette_score(d,agg_single.labels_), agg_single.get_params()["linkage"])
     # agg_single = AgglomerativeClustering(n_clusters=8, distance_threshold=None, linkage="ward")
     # agg_single.fit(d)
     # print(agg_single.get_params()["linkage"], "linkage sil:",silhouette_score(d,agg_single.labels_) )
 
-    # plt.title(f"Hierarchical Clustering Dendrogram - {agg_single.get_params()["linkage"]} linkage")
-    # # plot the top three levels of the dendrogram
-    # plot_dendrogram(agg_single, truncate_mode="level", p=3)
-    # plt.xlabel("Number of points in node (or index of point if no parenthesis).")
-    # plt.show()
-    # print(silhouette_score(d,agg_single.labels_))
+    plt.title(f"Hierarchical Clustering Dendrogram - {agg_single.get_params()["linkage"]} linkage")
+    # plot the top three levels of the dendrogram
+    plot_dendrogram(agg_single, truncate_mode=None, p=8)
+    plt.xlabel("Number of points in node (or index of point if no parenthesis).")
+    plt.show()
+    print(silhouette_score(d,agg_single.labels_))
     return agg_single
 
-def draw_data(d: pd.DataFrame, clustering):
+def draw_data(d: pd.DataFrame, clustering, animate=False):
     #snodd från https://stackoverflow.com/a/42915422
     from mpl_toolkits.mplot3d.proj3d import proj_transform
     from matplotlib.text import Annotation
@@ -237,16 +251,18 @@ def draw_data(d: pd.DataFrame, clustering):
         annotate3D(ax, s=str(list(d.index)[j]), xyz=xyz_, fontsize=10, xytext=(-3,3),
                 textcoords='offset points', ha='right',va='bottom')    
     
-    framecount = 400
-    def animate(frame):
-        ax.view_init(30 + 5*sin(25*(frame/framecount)), (frame/framecount)*360)
-        plt.pause(.001)
-        return fig
+    if animate:
+        framecount = 400
+        def animate(frame):
+            ax.view_init(30 + 5*sin(25*(frame/framecount)), (frame/framecount)*360)
+            plt.pause(.001)
+            return fig
 
-    anim = animation.FuncAnimation(fig, animate, frames=framecount, interval=50)
-    # HTML(anim.to_html5_video())
-    anim.save("clustering_animation.gif", writer="pillow")
-
+        anim = animation.FuncAnimation(fig, animate, frames=framecount, interval=50)
+        # HTML(anim.to_html5_video())
+        anim.save("clustering_animation.gif", writer="pillow")
+    else:
+        plt.show()
 def draw_map(d, clustering):
     with open("europe.geojson", "r", encoding="utf-8") as f:
         geometry = geojson.load(f)
@@ -254,6 +270,11 @@ def draw_map(d, clustering):
     # Create a Series mapping country codes to cluster labels
     cluster_labels = pd.Series(clustering.labels_, index=d.index)
 
+    # Dynamically generate a colorscale based on the number of clusters
+    colors = list(qualitative.Antique)
+    n_clusters = len(set(cluster_labels.values))
+    colorscale = [[i/(n_clusters-1 if n_clusters > 1 else 1), colors[i % len(colors)]] for i in range(n_clusters)]
+    
     fig = go.Figure([
         go.Choropleth(
             geojson=geometry,
@@ -261,8 +282,8 @@ def draw_map(d, clustering):
             z=list(map(str, cluster_labels.values)),
             featureidkey="properties.ISO2",
             autocolorscale=False,
-            colorscale=[[i/len(["#FFFFFF", "#FF0000", "#00FF00", "#0000FF"]), c] for i,c in enumerate(["#FFFFFF", "#FF0000", "#00FF00", "#0000FF"])],
-            showscale=True  # Remove color bar
+            colorscale=colorscale if n_clusters > 1 else [[0, colors[0]], [1, colors[0]]],
+            showscale=False
         )
     ])
 
@@ -282,7 +303,7 @@ def dataset_influence_analysis(d, clustering):
     df['cluster'] =  pd.Series(clustering.labels_, index=d.index)
 
     cluster_means = df.groupby('cluster').mean()
-    # print(cluster_means)
+    print(cluster_means)
     
     feature_importance = cluster_means.std(axis=0).sort_values(ascending=False)
     print("Feature importance based on cluster means standard deviation:")
@@ -298,17 +319,17 @@ if __name__ == "__main__":
     
     #pca och sånt
     # print(df.loc[["SE","XK", "AL", "BA", "PL"]].transpose())
-    # df = preprocess_data(df)
+    df = preprocess_data(df)
     
     #clustering
-    # clustering = cluster(df)
+    clustering = cluster(df)
     # Influence analysis
-    # 
-    # dataset_influence_analysis(df, clustering)
+    dataset_influence_analysis(df, clustering)
 
     # davis-balding index /silhouette score
     # check influence of each dataset
     # does the clusters make sense
 
-    # draw_data(df, clustering)
+    draw_data(df, clustering)
+    draw_map(df, clustering)
     # print(df.index)

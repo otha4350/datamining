@@ -1,1 +1,313 @@
-{"version": "2.0", "class": "dataset", "label": "Gross and net social protection expenditure", "source": "ESTAT", "updated": "2025-06-17T23:00:00+0200", "value": {"27": 27.69, "41": 18.41, "8": 25.7, "9": 18.64, "39": 24.46, "20": 18.75, "10": 19.89, "12": 27.34, "11": 24.02, "7": 26.49, "5": 26.27, "4": 26.24, "13": 15.18, "15": 22.04, "16": 24.17, "0": 25.43, "33": 26.77, "17": 32.09, "18": 20.53, "24": 16.4, "14": 10.76, "37": 22.84, "19": 26.09, "22": 16.19, "23": 19.82, "21": 18.26, "42": 18.44, "25": 14.23, "26": 22.46, "38": 18.5, "28": 19.8, "29": 23.05, "30": 16.33, "44": 18.12, "34": 24.38, "31": 23.82, "32": 18.12, "45": 8.6}, "status": {"39": "p", "12": "p", "11": "p", "7": "p", "5": "p", "4": "p", "15": "p", "0": "p", "17": "p", "42": "p", "34": "p"}, "id": ["freq", "spdeps", "indic_sp", "geo", "time"], "size": [1, 1, 1, 46, 1], "dimension": {"freq": {"label": "Time frequency", "category": {"index": {"A": 0}, "label": {"A": "Annual"}}}, "spdeps": {"label": "Main expenditure type", "category": {"index": {"TOTAL": 0}, "label": {"TOTAL": "Total"}}}, "indic_sp": {"label": "Social protection indicators", "category": {"index": {"NSP_PC_GDP": 0}, "label": {"NSP_PC_GDP": "Net social protection - percentage of GDP"}}}, "geo": {"label": "Geopolitical entity (reporting)", "category": {"index": {"EU27_2020": 0, "EU28": 1, "EU27_2007": 2, "EU15": 3, "EA20": 4, "EA19": 5, "EA18": 6, "EA12": 7, "BE": 8, "BG": 9, "CZ": 10, "DK": 11, "DE": 12, "EE": 13, "IE": 14, "EL": 15, "ES": 16, "FR": 17, "HR": 18, "IT": 19, "CY": 20, "LV": 21, "LT": 22, "LU": 23, "HU": 24, "MT": 25, "NL": 26, "AT": 27, "PL": 28, "PT": 29, "RO": 30, "SI": 31, "SK": 32, "FI": 33, "SE": 34, "EEA_X_LI": 35, "EFTA_X_LI": 36, "IS": 37, "NO": 38, "CH": 39, "UK": 40, "BA": 41, "ME": 42, "MK": 43, "RS": 44, "TR": 45}, "label": {"EU27_2020": "European Union - 27 countries (from 2020)", "EU28": "European Union - 28 countries (2013-2020)", "EU27_2007": "European Union - 27 countries (2007-2013)", "EU15": "European Union - 15 countries (1995-2004)", "EA20": "Euro area \u2013 20 countries (from 2023)", "EA19": "Euro area - 19 countries  (2015-2022)", "EA18": "Euro area - 18 countries (2014)", "EA12": "Euro area - 12 countries (2001-2006)", "BE": "Belgium", "BG": "Bulgaria", "CZ": "Czechia", "DK": "Denmark", "DE": "Germany", "EE": "Estonia", "IE": "Ireland", "EL": "Greece", "ES": "Spain", "FR": "France", "HR": "Croatia", "IT": "Italy", "CY": "Cyprus", "LV": "Latvia", "LT": "Lithuania", "LU": "Luxembourg", "HU": "Hungary", "MT": "Malta", "NL": "Netherlands", "AT": "Austria", "PL": "Poland", "PT": "Portugal", "RO": "Romania", "SI": "Slovenia", "SK": "Slovakia", "FI": "Finland", "SE": "Sweden", "EEA_X_LI": "European Economic Area except Liechtenstein", "EFTA_X_LI": "European Free Trade Association except Liechtenstein", "IS": "Iceland", "NO": "Norway", "CH": "Switzerland", "UK": "United Kingdom", "BA": "Bosnia and Herzegovina", "ME": "Montenegro", "MK": "North Macedonia", "RS": "Serbia", "TR": "T\u00fcrkiye"}}}, "time": {"label": "Time", "category": {"index": {"2022": 0}, "label": {"2022": "2022"}}}}, "extension": {"lang": "EN", "id": "SPR_NET_GROS", "agencyId": "ESTAT", "version": "1.0", "datastructure": {"id": "SPR_NET_GROS", "agencyId": "ESTAT", "version": "1.0"}, "annotation": [{"type": "CREATED", "date": "2025-06-17T15:57:37+0200"}, {"type": "DISSEMINATION_DOI_XML", "title": "<adms:identifier xmlns:adms=\"http://www.w3.org/ns/adms#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core.html\" xmlns:dct=\"http://purl.org/dc/terms/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"><adms:Identifier rdf:about=\"https://doi.org/10.2908/SPR_NET_GROS\"><skos:notation rdf:datatype=\"http://purl.org/spar/datacite/doi\">10.2908/SPR_NET_GROS</skos:notation><dct:creator rdf:resource=\"http://publications.europa.eu/resource/authority/corporate-body/ESTAT\"/><dct:issued rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2025-06-17</dct:issued></adms:Identifier></adms:identifier>"}, {"type": "DISSEMINATION_OBJECT_TYPE", "title": "DATASET"}, {"type": "DISSEMINATION_TIMESTAMP_DATA", "date": "2025-06-17T23:00:00+0200"}, {"type": "DISSEMINATION_TIMESTAMP_GLOBAL", "date": "2025-06-18T11:00:00+0200"}, {"type": "DISSEMINATION_TIMESTAMP_PLANNED", "date": "2025-06-18T11:00:00+0200"}, {"type": "ESMS_HTML", "title": "Explanatory texts (metadata)", "href": "https://ec.europa.eu/eurostat/cache/metadata/en/spr_esms.htm"}, {"type": "ESMS_SDMX", "title": "Explanatory texts (metadata)", "href": "https://ec.europa.eu/eurostat/api/dissemination/files?file=metadata/spr_esms.sdmx.zip"}, {"type": "OBS_COUNT", "title": "4150"}, {"type": "OBS_PERIOD_OVERALL_LATEST", "title": "2022"}, {"type": "OBS_PERIOD_OVERALL_OLDEST", "title": "2007"}, {"type": "SOURCE_INSTITUTIONS", "text": "Eurostat"}, {"type": "UPDATE_DATA", "date": "2025-06-17T23:00:00+0200"}, {"type": "UPDATE_STRUCTURE", "date": "2025-06-17T23:00:00+0200"}], "status": {"label": {"p": "provisional"}}, "positions-with-no-data": {"freq": [], "spdeps": [], "indic_sp": [], "geo": [1, 2, 3, 6, 35, 36, 40, 43], "time": []}}}
+{
+    "version": "2.0",
+    "class": "dataset",
+    "label": "Gross and net social protection expenditure",
+    "source": "ESTAT",
+    "updated": "2025-06-17T23:00:00+0200",
+    "value": {
+        "27": 27.69,
+        "41": 18.41,
+        "8": 25.7,
+        "9": 18.64,
+        "39": 24.46,
+        "20": 18.75,
+        "10": 19.89,
+        "12": 27.34,
+        "11": 24.02,
+        "7": 26.49,
+        "5": 26.27,
+        "4": 26.24,
+        "13": 15.18,
+        "15": 22.04,
+        "16": 24.17,
+        "0": 25.43,
+        "33": 26.77,
+        "17": 32.09,
+        "18": 20.53,
+        "24": 16.4,
+        "14": 10.76,
+        "37": 22.84,
+        "19": 26.09,
+        "22": 16.19,
+        "23": 19.82,
+        "21": 18.26,
+        "42": 18.44,
+        "25": 14.23,
+        "26": 22.46,
+        "38": 18.5,
+        "28": 19.8,
+        "29": 23.05,
+        "30": 16.33,
+        "44": 18.12,
+        "34": 24.38,
+        "31": 23.82,
+        "32": 18.12,
+        "45": 8.6
+    },
+    "status": {
+        "39": "p",
+        "12": "p",
+        "11": "p",
+        "7": "p",
+        "5": "p",
+        "4": "p",
+        "15": "p",
+        "0": "p",
+        "17": "p",
+        "42": "p",
+        "34": "p"
+    },
+    "id": [
+        "freq",
+        "spdeps",
+        "indic_sp",
+        "geo",
+        "time"
+    ],
+    "size": [
+        1,
+        1,
+        1,
+        46,
+        1
+    ],
+    "dimension": {
+        "freq": {
+            "label": "Time frequency",
+            "category": {
+                "index": {
+                    "A": 0
+                },
+                "label": {
+                    "A": "Annual"
+                }
+            }
+        },
+        "spdeps": {
+            "label": "Main expenditure type",
+            "category": {
+                "index": {
+                    "TOTAL": 0
+                },
+                "label": {
+                    "TOTAL": "Total"
+                }
+            }
+        },
+        "indic_sp": {
+            "label": "Social protection indicators",
+            "category": {
+                "index": {
+                    "NSP_PC_GDP": 0
+                },
+                "label": {
+                    "NSP_PC_GDP": "Net social protection - percentage of GDP"
+                }
+            }
+        },
+        "geo": {
+            "label": "Geopolitical entity (reporting)",
+            "category": {
+                "index": {
+                    "EU27_2020": 0,
+                    "EU28": 1,
+                    "EU27_2007": 2,
+                    "EU15": 3,
+                    "EA20": 4,
+                    "EA19": 5,
+                    "EA18": 6,
+                    "EA12": 7,
+                    "BE": 8,
+                    "BG": 9,
+                    "CZ": 10,
+                    "DK": 11,
+                    "DE": 12,
+                    "EE": 13,
+                    "IE": 14,
+                    "EL": 15,
+                    "ES": 16,
+                    "FR": 17,
+                    "HR": 18,
+                    "IT": 19,
+                    "CY": 20,
+                    "LV": 21,
+                    "LT": 22,
+                    "LU": 23,
+                    "HU": 24,
+                    "MT": 25,
+                    "NL": 26,
+                    "AT": 27,
+                    "PL": 28,
+                    "PT": 29,
+                    "RO": 30,
+                    "SI": 31,
+                    "SK": 32,
+                    "FI": 33,
+                    "SE": 34,
+                    "EEA_X_LI": 35,
+                    "EFTA_X_LI": 36,
+                    "IS": 37,
+                    "NO": 38,
+                    "CH": 39,
+                    "UK": 40,
+                    "BA": 41,
+                    "ME": 42,
+                    "MK": 43,
+                    "RS": 44,
+                    "TR": 45
+                },
+                "label": {
+                    "EU27_2020": "European Union - 27 countries (from 2020)",
+                    "EU28": "European Union - 28 countries (2013-2020)",
+                    "EU27_2007": "European Union - 27 countries (2007-2013)",
+                    "EU15": "European Union - 15 countries (1995-2004)",
+                    "EA20": "Euro area \u2013 20 countries (from 2023)",
+                    "EA19": "Euro area - 19 countries  (2015-2022)",
+                    "EA18": "Euro area - 18 countries (2014)",
+                    "EA12": "Euro area - 12 countries (2001-2006)",
+                    "BE": "Belgium",
+                    "BG": "Bulgaria",
+                    "CZ": "Czechia",
+                    "DK": "Denmark",
+                    "DE": "Germany",
+                    "EE": "Estonia",
+                    "IE": "Ireland",
+                    "EL": "Greece",
+                    "ES": "Spain",
+                    "FR": "France",
+                    "HR": "Croatia",
+                    "IT": "Italy",
+                    "CY": "Cyprus",
+                    "LV": "Latvia",
+                    "LT": "Lithuania",
+                    "LU": "Luxembourg",
+                    "HU": "Hungary",
+                    "MT": "Malta",
+                    "NL": "Netherlands",
+                    "AT": "Austria",
+                    "PL": "Poland",
+                    "PT": "Portugal",
+                    "RO": "Romania",
+                    "SI": "Slovenia",
+                    "SK": "Slovakia",
+                    "FI": "Finland",
+                    "SE": "Sweden",
+                    "EEA_X_LI": "European Economic Area except Liechtenstein",
+                    "EFTA_X_LI": "European Free Trade Association except Liechtenstein",
+                    "IS": "Iceland",
+                    "NO": "Norway",
+                    "CH": "Switzerland",
+                    "UK": "United Kingdom",
+                    "BA": "Bosnia and Herzegovina",
+                    "ME": "Montenegro",
+                    "MK": "North Macedonia",
+                    "RS": "Serbia",
+                    "TR": "T\u00fcrkiye"
+                }
+            }
+        },
+        "time": {
+            "label": "Time",
+            "category": {
+                "index": {
+                    "2022": 0
+                },
+                "label": {
+                    "2022": "2022"
+                }
+            }
+        }
+    },
+    "extension": {
+        "lang": "EN",
+        "id": "SPR_NET_GROS",
+        "agencyId": "ESTAT",
+        "version": "1.0",
+        "datastructure": {
+            "id": "SPR_NET_GROS",
+            "agencyId": "ESTAT",
+            "version": "1.0"
+        },
+        "annotation": [
+            {
+                "type": "CREATED",
+                "date": "2025-06-17T15:57:37+0200"
+            },
+            {
+                "type": "DISSEMINATION_DOI_XML",
+                "title": "<adms:identifier xmlns:adms=\"http://www.w3.org/ns/adms#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core.html\" xmlns:dct=\"http://purl.org/dc/terms/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"><adms:Identifier rdf:about=\"https://doi.org/10.2908/SPR_NET_GROS\"><skos:notation rdf:datatype=\"http://purl.org/spar/datacite/doi\">10.2908/SPR_NET_GROS</skos:notation><dct:creator rdf:resource=\"http://publications.europa.eu/resource/authority/corporate-body/ESTAT\"/><dct:issued rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2025-06-17</dct:issued></adms:Identifier></adms:identifier>"
+            },
+            {
+                "type": "DISSEMINATION_OBJECT_TYPE",
+                "title": "DATASET"
+            },
+            {
+                "type": "DISSEMINATION_TIMESTAMP_DATA",
+                "date": "2025-06-17T23:00:00+0200"
+            },
+            {
+                "type": "DISSEMINATION_TIMESTAMP_GLOBAL",
+                "date": "2025-06-18T11:00:00+0200"
+            },
+            {
+                "type": "DISSEMINATION_TIMESTAMP_PLANNED",
+                "date": "2025-06-18T11:00:00+0200"
+            },
+            {
+                "type": "ESMS_HTML",
+                "title": "Explanatory texts (metadata)",
+                "href": "https://ec.europa.eu/eurostat/cache/metadata/en/spr_esms.htm"
+            },
+            {
+                "type": "ESMS_SDMX",
+                "title": "Explanatory texts (metadata)",
+                "href": "https://ec.europa.eu/eurostat/api/dissemination/files?file=metadata/spr_esms.sdmx.zip"
+            },
+            {
+                "type": "OBS_COUNT",
+                "title": "4150"
+            },
+            {
+                "type": "OBS_PERIOD_OVERALL_LATEST",
+                "title": "2022"
+            },
+            {
+                "type": "OBS_PERIOD_OVERALL_OLDEST",
+                "title": "2007"
+            },
+            {
+                "type": "SOURCE_INSTITUTIONS",
+                "text": "Eurostat"
+            },
+            {
+                "type": "UPDATE_DATA",
+                "date": "2025-06-17T23:00:00+0200"
+            },
+            {
+                "type": "UPDATE_STRUCTURE",
+                "date": "2025-06-17T23:00:00+0200"
+            }
+        ],
+        "status": {
+            "label": {
+                "p": "provisional"
+            }
+        },
+        "positions-with-no-data": {
+            "freq": [],
+            "spdeps": [],
+            "indic_sp": [],
+            "geo": [
+                1,
+                2,
+                3,
+                6,
+                35,
+                36,
+                40,
+                43
+            ],
+            "time": []
+        }
+    }
+}
