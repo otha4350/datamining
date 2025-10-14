@@ -108,64 +108,50 @@ def fill_df(datasets):
 
 def scale_data(df: pd.DataFrame):
 
-    try:
-        df["ilc_di18"] = df["ilc_di18"] * 1
-        df["lfsa_ewhun2"] = df["lfsa_ewhun2"] / 2
+    df["lfsa_ewhun2"] = df["lfsa_ewhun2"] / 2
         
-        df = df.drop("spr_net_func_TOTAL", axis=1, errors='ignore')
-        df["spr_net_func_SICK"] = df["spr_net_func_SICK"] / 6
-        df["spr_net_func_DIS"] = df["spr_net_func_DIS"] / 6
-        df["spr_net_func_OLD"] = df["spr_net_func_OLD"] / 6
-        df["spr_net_func_FAM"] = df["spr_net_func_FAM"] / 6
-        df["spr_net_func_UNE"] = df["spr_net_func_UNE"] / 6
-        df["spr_net_func_HOU"] = df["spr_net_func_HOU"] / 6
-    except Exception as e:
-        print("sorry din mamma", e)
     return df
 
-def preprocess_data(df: pd.DataFrame):
-    # print(df["ilc_di18"])
+def preprocess_data(df: pd.DataFrame, show_scree = False):
     # Change index 'EL' to 'GR' to conform Greece naming
     df.index = df.index.map(lambda x: "GR" if x == "EL" else x)
 
     df = df.drop(['EU', 'EU27_2020', 'EU28', 'EU27_2007', 'EA', 'EA20', 'EA19', 'EA18', 'EU25', 'EU15', 'EA17', 'EA13', 'EA12', 'EEA30_2007', 'EEA28',
        'EFTA','EEA_X_LI', 'EFTA_X_LI'], errors='ignore')
 
-    # print(df.isna().sum(axis=1))
     df = df.dropna(axis=0, thresh=int(0.5*len(df.columns)))
     df = df.dropna(axis=1, thresh=int(0.5*len(df.index)))
-    # print(df.isna().sum(axis=0))
-    # print(df.isna().sum(axis=1))
     df = df.infer_objects(copy=True)
     df = df.fillna(df.mean())
     df = df.dropna(axis=1)
-    # print(df.isna().sum(axis=1))
-    
-    
-    # print(df.info())
 
     scaled=MinMaxScaler(copy=True).set_output(transform="pandas").fit_transform(df)
     standarded = StandardScaler().set_output(transform="pandas").fit_transform(scaled)
 
     rescaled = scale_data(standarded)
-    # print(rescaled["ilc_di18"])
 
-    pca = PCA(n_components=0.95)
-    pcaed = pca.set_output(transform="pandas").fit_transform(rescaled)
-    # print(pca.components_)
-    # for i in range(1,len(pca.explained_variance_ratio_)):
-    #     print(f"explained variance ratio pca={i}:", sum(pca.explained_variance_ratio_[:i]))
-    # scree plot
-    # plt.plot(range(len(pca.explained_variance_ratio_)),pca.explained_variance_)
-    # plt.show()
+    if not show_scree:
+        pca = PCA(n_components=0.95)
+        pcaed = pca.set_output(transform="pandas").fit_transform(rescaled)
+    else:
+        pca = PCA()
+        pcaed = pca.set_output(transform="pandas").fit_transform(rescaled)
+        print(pca.components_)
+        for i in range(0,len(pca.explained_variance_ratio_)):
+            print(f"explained variance ratio pca={i}:", sum(pca.explained_variance_ratio_[:i]))
+        # scree plot
+        plt.plot(range(len(pca.explained_variance_ratio_)),pca.explained_variance_)
+        plt.xlabel("Retained Components")
+        plt.ylabel("Explained Variance Ratio")
+        plt.title("Scree Plot")
+        plt.show()
     for i, component in enumerate(pca.components_):
         print(f"PCA Component {i}:")
         print(np.round(component, 2))
         print()  # Add empty line for readability
-    # pcaed = rescaled
     return pcaed
 
-def cluster(d: pd.DataFrame):
+def cluster(d: pd.DataFrame, show_dendrogram=False, show_silhouettes=False):
     def plot_dendrogram(model, **kwargs):
         # Create linkage matrix and then plot the dendrogram
 
@@ -188,28 +174,47 @@ def cluster(d: pd.DataFrame):
         # Plot the corresponding dendrogram
         dendrogram(linkage_matrix, labels=list(d.index), **kwargs)
     
-    # agg_single = AgglomerativeClustering(n_clusters=4, distance_threshold=None, linkage="complete")
-    # agg_single.fit(d)
-    # print(silhouette_score(d,agg_single.labels_), agg_single.get_params()["linkage"])
-    # agg_single = AgglomerativeClustering(n_clusters=4, distance_threshold=None, linkage="single")
-    # agg_single.fit(d)
-    # print(silhouette_score(d,agg_single.labels_), agg_single.get_params()["linkage"])
-    # 3 -> 0.259 siluete (average)
-    dt = 2
+    n_clusters = 0
+    if show_silhouettes:
+        linkages = ["average", "single", "complete", "ward"]
+        for link in linkages:
+            sil_data = {}
+            for dt in np.linspace(0.1,10,500):
+
+                agg_single = AgglomerativeClustering(n_clusters=None, distance_threshold=dt, linkage=link)
+                agg_single.fit(d)
+                if agg_single.n_clusters_ == n_clusters:
+                    continue
+                n_clusters = agg_single.n_clusters_
+                if agg_single.n_clusters_ == 1 or agg_single.n_clusters_ > len(d)-1:
+                    print(f"link: {link} - dist: {dt:.2f} - sil {1:.2f} - clusters {agg_single.n_clusters_}")
+                    continue
+                print(f"link: {link} - dist: {dt:.2f} - sil {silhouette_score(d,agg_single.labels_):.2f} - clusters {agg_single.n_clusters_}")
+
+                sil_data[agg_single.n_clusters_] = silhouette_score(d,agg_single.labels_)
+        
+            plt.plot(sil_data.keys(), sil_data.values(), label=link)
+        plt.xticks(range(0,31,2))
+        plt.title("Silhouette score vs number of clusters")
+        plt.xlabel("Clusters")
+        plt.ylabel("Silhouette scoure")
+        plt.grid(True)
+        plt.legend()
+        plt.show()
+
+    dt = 2.84
     print("Distance threshold:", dt)
     agg_single = AgglomerativeClustering(n_clusters=None, distance_threshold=dt, linkage="average")
     agg_single.fit(d)
     print(silhouette_score(d,agg_single.labels_), agg_single.get_params()["linkage"])
-    # agg_single = AgglomerativeClustering(n_clusters=8, distance_threshold=None, linkage="ward")
-    # agg_single.fit(d)
-    # print(agg_single.get_params()["linkage"], "linkage sil:",silhouette_score(d,agg_single.labels_) )
 
-    plt.title(f"Hierarchical Clustering Dendrogram - {agg_single.get_params()["linkage"]} linkage")
-    # plot the top three levels of the dendrogram
-    plot_dendrogram(agg_single, truncate_mode=None, p=8)
-    plt.xlabel("Number of points in node (or index of point if no parenthesis).")
-    plt.show()
-    print(silhouette_score(d,agg_single.labels_))
+    if show_dendrogram:
+        plt.title(f"Hierarchical Clustering Dendrogram - {agg_single.get_params()["linkage"]} linkage")
+        # plot the top three levels of the dendrogram
+        plot_dendrogram(agg_single, truncate_mode="level", p=8, color_threshold=dt)
+        plt.xlabel("Number of points in node (or index of point if no parenthesis).")
+        plt.show()
+    print(f"Distance threshold: {dt:.2f} - sil {silhouette_score(d,agg_single.labels_):.2f} - clusters {agg_single.n_clusters_}")
     return agg_single
 
 def draw_data(d: pd.DataFrame, clustering, animate=False):
@@ -238,7 +243,7 @@ def draw_data(d: pd.DataFrame, clustering, animate=False):
         ax.add_artist(tag)
 
     # create figure        
-    fig = plt.figure(figsize=(5,4))
+    fig = plt.figure(figsize=(10,8))
     ax = fig.add_subplot(projection='3d')
 
     # plot vertices
@@ -259,10 +264,10 @@ def draw_data(d: pd.DataFrame, clustering, animate=False):
             return fig
 
         anim = animation.FuncAnimation(fig, animate, frames=framecount, interval=50)
-        # HTML(anim.to_html5_video())
         anim.save("clustering_animation.gif", writer="pillow")
     else:
         plt.show()
+
 def draw_map(d, clustering):
     with open("europe.geojson", "r", encoding="utf-8") as f:
         geometry = geojson.load(f)
@@ -318,18 +323,12 @@ if __name__ == "__main__":
     df = fill_df(datasets)
     
     #pca och sånt
-    # print(df.loc[["SE","XK", "AL", "BA", "PL"]].transpose())
-    df = preprocess_data(df)
+    df = preprocess_data(df, show_scree=True)
     
     #clustering
-    clustering = cluster(df)
+    clustering = cluster(df, show_silhouettes=True, show_dendrogram=True)
     # Influence analysis
     dataset_influence_analysis(df, clustering)
 
-    # davis-balding index /silhouette score
-    # check influence of each dataset
-    # does the clusters make sense
-
-    draw_data(df, clustering)
+    draw_data(df, clustering, animate=False)
     draw_map(df, clustering)
-    # print(df.index)
